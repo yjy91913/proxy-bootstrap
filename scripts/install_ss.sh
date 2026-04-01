@@ -24,8 +24,12 @@ IP=$(curl -s https://api.ipify.org || echo "YOUR_IP")
 
 cat > /etc/sing-box/config.json <<CONF
 {
+  "log": {
+    "level": "info"
+  },
   "inbounds": [{
     "type": "shadowsocks",
+    "tag": "ss-in",
     "listen": "::",
     "listen_port": $PORT,
     "method": "$METHOD",
@@ -33,7 +37,8 @@ cat > /etc/sing-box/config.json <<CONF
     "network": "tcp"
   }],
   "outbounds": [{
-    "type": "direct"
+    "type": "direct",
+    "tag": "direct"
   }]
 }
 CONF
