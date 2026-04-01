@@ -2,7 +2,7 @@
 set -euo pipefail
 
 PORT="${PORT:-18389}"
-METHOD="2022-blake3-aes-256-gcm"
+METHOD="aes-256-gcm"
 PASSWORD="${PASSWORD:-$(openssl rand -base64 16 | tr -d '\n')}"
 
 apt-get update -y
